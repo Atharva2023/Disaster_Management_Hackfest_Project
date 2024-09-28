@@ -1,0 +1,5 @@
+[
+    { "name": "Tsunami Warning - Hawaii", "coordinates": [21.3069, -157.8583] },
+    { "name": "Tsunami Warning - California", "coordinates": [36.7783, -119.4179] },
+    { "name": "Tsunami Warning - Japan", "coordinates": [35.6762, 139.6503] }
+]

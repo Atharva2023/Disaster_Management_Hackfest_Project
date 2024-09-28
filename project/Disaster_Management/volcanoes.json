@@ -1,0 +1,6 @@
+[
+    { "name": "Kilauea", "coordinates": [19.4069, -155.2830] },
+    { "name": "Mount St. Helens", "coordinates": [46.1912, -122.1944] },
+    { "name": "Mount Merapi", "coordinates": [-7.541, 110.446] },
+    { "name": "Mount Fuji", "coordinates": [35.3606, 138.7274] }
+]
