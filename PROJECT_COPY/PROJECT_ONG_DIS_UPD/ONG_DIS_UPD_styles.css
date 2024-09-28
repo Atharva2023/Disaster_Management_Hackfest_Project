@@ -1,0 +1,181 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+h1 {
+    text-align: center;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+#rescue-camps,
+#casualty-reports,
+#missing-persons {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, 
+td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #3498db;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e6e6e6;
+}
+
+/* Photo Gallery Styles */
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.photo-gallery img {
+    width: 200px;
+    height: auto;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Major Disasters List Styles */
+#major-disasters {
+    list-style-type: none;
+    padding: 0;
+}
+
+#major-disasters li {
+    margin-bottom: 10px;
+}
+
+#major-disasters a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#major-disasters a:hover {
+    text-decoration: underline;
+}
+
+/* Useful Government Links Styles */
+ul:last-of-type {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul:last-of-type li {
+    margin-bottom: 10px;
+}
+
+ul:last-of-type a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+ul:last-of-type a:hover {
+    text-decoration: underline;
+}
+
+/* Missing Person Services Styles */
+#addMissingPerson {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#addMissingPerson input {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+#addMissingPerson button {
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#addMissingPerson button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    th, 
+    td {
+        padding: 8px;
+    }
+
+    .photo-gallery img {
+        width: 100%;
+    }
+
+    #addMissingPerson input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #addMissingPerson button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    .photo-gallery img {
+        width: 100%;
+    }
+}

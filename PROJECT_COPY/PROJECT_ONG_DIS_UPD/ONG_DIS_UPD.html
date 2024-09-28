@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ongoing Disaster Updates in India</title>
+    <link rel="stylesheet" href="ONG_DIS_UPD_styles.css">
+</head>
+<body>
+    <h1>Ongoing Disaster Updates in India</h1>
+
+    <h2>Major/Recent Disasters</h2>
+    <ul id="major-disasters">
+        <li><a href="#cyclone-amphan">Cyclone Amphan (West Bengal & Odisha)</a></li>
+        <li><a href="#floods-assam">Assam Floods</a></li>
+        <li><a href="#landslides-kerala">Kerala Landslides</a></li>
+        <!-- More disasters will be dynamically added here -->
+    </ul>
+
+    <h2 id="cyclone-amphan">1. Rescue Camp Details (Cyclone Amphan)</h2>
+    <div class="table-container">
+        <table id="rescue-camps">
+            <thead>
+                <tr>
+                    <th>Camp Name</th>
+                    <th>Location</th>
+                    <th>Capacity</th>
+                    <th>Current Occupancy</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <h2>2. Reports of Casualties</h2>
+    <div class="table-container">
+        <table id="casualty-reports">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>State/UT</th>
+                    <th>District</th>
+                    <th>Injuries</th>
+                    <th>Fatalities</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <h2>3. Photos Uploaded by People in the Region</h2>
+    <div class="photo-gallery">
+        <!-- Photos will be dynamically populated here -->
+    </div>
+
+    <h2>4. Missing Person Services</h2>
+    <table id="missing-persons">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Last Seen (State/UT, District)</th>
+                <th>Contact Information</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be dynamically populated here -->
+        </tbody>
+    </table>
+    <div id="addMissingPerson" style="display: flex; align-items: flex-end;">
+        <input id="newName" placeholder="Name" style="margin-right: 5px;">
+        <input id="newAge" placeholder="Age" style="margin-right: 5px; width: 103px;">
+        <input id="newLastSeen" placeholder="Last Seen" style="margin-right: 5px;width: 520px;">
+        <input id="newContactInfo" placeholder="Contact Info" style="margin-right: 5px;width: 260px;">
+        <button onclick="addNewMissingPerson()">Add New Person</button>
+    </div>
+
+    <h2>5. Useful Government Links</h2>
+    <ul>
+        <li><a href="https://ndma.gov.in/" target="_blank">National Disaster Management Authority (NDMA)</a></li>
+        <li><a href="https://nidm.gov.in/" target="_blank">National Institute of Disaster Management (NIDM)</a></li>
+        <li><a href="https://www.ndrf.gov.in/" target="_blank">National Disaster Response Force (NDRF)</a></li>
+        <li><a href="https://mha.gov.in/" target="_blank">Ministry of Home Affairs (MHA)</a></li>
+        <li><a href="https://imd.gov.in/" target="_blank">India Meteorological Department (IMD)</a></li>
+    </ul>
+
+    <script src="ONG_DIS_UPD.js"></script>
+</body>
+</html>
