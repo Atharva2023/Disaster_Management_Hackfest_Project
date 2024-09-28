@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Disaster Management</title>
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Correct Font Awesome CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scrollable-menu,
+        .scrollable-content {
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+
+        .card {
+            width: 250px;
+            height: 350px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 sticky top-0 z-50 p-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <img src="./images/logo.jpeg" alt="Disaster Management Logo" class="h-10 w-10 rounded-full">
+            <h1 class="text-white text-xl ml-4 font-bold">User Dashboard</h1>
+        </div>
+        <input type="text" placeholder="Search..." class="p-2 rounded w-64" id="searchInput">
+    </nav>
+
+    <!-- Main Layout -->
+    <div class="flex flex-1">
+        <!-- Left Sidebar (Scrollable Menu) -->
+        <div class="w-1/4 bg-white shadow-md p-4 scrollable-menu">
+            <h2 class="text-lg font-bold mb-4">Menu</h2>
+            <ul id="menuItems">
+                <li class="mb-2 hover:bg-green-200 p-2 rounded flex items-center gap-3 transition duration-300">
+                    <i class="ri-megaphone-fill text-2xl"></i>
+                    <a href=".\project\disaster simulation2\index.html">Disaster Simulation and Training</a>
+                </li>
+                <li class="mb-2 hover:bg-green-200 p-2 rounded flex items-center gap-3 transition duration-300">
+                    <i class="ri-community-line text-2xl"></i>
+                    <a href="#community">Emergency Services Contact Information</a>
+                </li>
+                <li class="mb-2 hover:bg-green-200 p-2 rounded flex items-center gap-3 transition duration-300">
+                    <i class="ri-edit-box-line text-2xl"></i>
+                    <a href="#crisisUpdate">Disaster Protocol</a>
+                </li>
+                <li class="mb-2 hover:bg-green-200 p-2 rounded flex items-center gap-3 transition duration-300">
+                    <i class="ri-bar-chart-2-line text-2xl"></i>
+                    <a href="#ongoingDisaster">Ongoing Disaster Updates</a>
+                </li>
+                <li class="mb-2 hover:bg-green-200 p-2 rounded flex items-center gap-3 transition duration-300">
+                    <i class="ri-bar-chart-2-line text-2xl"></i>
+                    <a href="#pastStatistics">Past Disaster Details</a>
+                </li>
+                <li class="mb-2 hover:bg-green-200 p-2 rounded flex items-center gap-3 transition duration-300">
+                    <i class="ri-bar-chart-2-line text-2xl"></i>
+                    <a href="#weatherUpdate">Weather Update</a>
+                </li>
+            </ul>
+            <button class="bg-red-500 text-white w-full p-2 rounded mt-4 flex items-center justify-center">
+                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+            </button>
+        </div>
+
+        <!-- Right Content (Scrollable Cards) -->
+        <div class="w-3/4 p-6 flex flex-wrap gap-6 scrollable-content" id="contentArea">
+            <!-- 
+Disaster Simulation and Training -->
+            <div id="publicAnnouncement"
+                class="bg-white shadow-lg rounded-lg card p-4 bg-green-200 transition transform hover:scale-105">
+                <img src="./images/Disaster Simulation and Training.jpeg" alt="Public Announcement"
+                    class="w-full h-32 object-cover rounded-t-md">
+                <h3 class="text-lg font-bold mt-2">
+                    Disaster Simulation and Training</h3>
+                <p class="text-sm mt-2">Stay updated with the latest public announcements and guidelines related to
+                    disaster management.</p>
+                <button class="bg-blue-500 text-white mt-4 p-2 rounded w-full">Learn More</button>
+            </div>
+
+            <!-- 
+Emergency Services Contact Information -->
+            <div id="community"
+                class="bg-white shadow-md rounded-lg card p-4 bg-red-200 transition transform hover:scale-105">
+                <img src="./images/Emergency Services Contact Information.png" alt="Community" class="w-full h-32 object-cover rounded-t-md">
+                <h3 class="text-lg font-bold mt-2">
+                    Emergency Services Contact Information</h3>
+                <p class="text-sm mt-2">Engage with community initiatives and activities that focus on disaster
+                    awareness and preparedness.</p>
+                <button class="bg-blue-500 text-white mt-4 p-2 rounded w-full">Learn More</button>
+            </div>
+
+            <!-- Disaster Protocol-->
+            <div id="crisisUpdate"
+                class="bg-white shadow-md rounded-lg card p-4 bg-yellow-200 transition transform hover:scale-105">
+                <img src="./images/Disaster Protocol.jpeg" alt="Crisis Update"
+                    class="w-full h-32 object-cover rounded-t-md">
+                <h3 class="text-lg font-bold mt-2">Disaster Protocol</h3>
+                <p class="text-sm mt-2">Get real-time updates on current crisis situations and important developments.
+                </p>
+                <button class="bg-blue-500 text-white mt-4 p-2 rounded w-full">Learn More</button>
+            </div>
+
+            <!-- 
+Ongoing Disaster Updates-->
+            <div id="pastStatistics"
+                class="bg-white shadow-md rounded-lg card p-4 bg-blue-200 transition transform hover:scale-105">
+                <img src="./images/Ongoing Disaster Updates.jpeg" alt="Past Disaster Statistics"
+                    class="w-full h-32 object-cover rounded-t-md">
+                <h3 class="text-lg font-bold mt-2">
+                    Ongoing Disaster Updates</h3>
+                <p class="text-sm mt-2">Explore detailed statistics and reports from past disaster events to learn from
+                    history.</p>
+                <button class="bg-blue-500 text-white mt-4 p-2 rounded w-full">Learn More</button>
+            </div>
+
+            <!-- 
+Past Disaster Details -->
+            <div id="trainingPrograms"
+                class="bg-white shadow-md rounded-lg card p-4 bg-purple-200 transition transform hover:scale-105">
+                <img src="./images/Past Disaster Details.jpeg" alt="Training Programs"
+                    class="w-full h-32 object-cover rounded-t-md">
+                <h3 class="text-lg font-bold mt-2">
+                    Past Disaster Details</h3>
+                <p class="text-sm mt-2">Participate in various training programs to enhance your disaster management
+                    skills and knowledge.</p>
+                <button class="bg-blue-500 text-white mt-4 p-2 rounded w-full">Learn More</button>
+            </div>
+
+            <!-- 
+Weather Update -->
+            <div id="safetyGuidelines"
+                class="bg-white shadow-md rounded-lg card p-4 bg-orange-200 transition transform hover:scale-105">
+                <img src="./images/Weather Update.jpeg" alt="Safety Guidelines"
+                    class="w-full h-32 object-cover rounded-t-md">
+                <h3 class="text-lg font-bold mt-2">
+                    Weather Update</h3>
+                <p class="text-sm mt-2">Learn essential safety guidelines to follow during disasters to protect yourself
+                    and others.</p>
+                <button class="bg-blue-500 text-white mt-4 p-2 rounded w-full">Learn More</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
