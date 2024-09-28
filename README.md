@@ -2,6 +2,6 @@
 #GeekForGeeks
 
 Team:-
-Akhilesh Yadav
-Abhishek Yadav
-Atharva Aggrawal
+Akhilesh Yadav,
+Abhishek Yadav,
+Atharva Agrawal
