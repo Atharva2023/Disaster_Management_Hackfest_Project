@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding-bottom: 50px;
+}
+
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #34495e;
+}
+
+section {
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1000px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #34495e;
+    color: #fff;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Add smooth transitions for interactive elements */
+a, button, input[type="submit"] {
+    transition: all 0.3s ease;
+}
+
+/* Enhance hover effects for table rows */
+tr td:hover {
+    background-color: #a3f5f5;
+    transform: scale(1.02);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add a subtle animation to section headers */
+section h2 {
+    position: relative;
+    overflow: hidden;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2c3e50;
+    transition: width 0.5s ease;
+}
+
+section h2:hover::after {
+    width: 100%;
+}
+
+/* Improve button styles */
+button, input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add a pulsing effect to important elements */
+.important {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Enhance focus styles for better accessibility */
+a:focus, button:focus, input:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* Add a subtle parallax effect to the header */
+header {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Improve footer interactivity */
+footer {
+    transition: transform 0.3s ease;
+}
+
+footer:hover {
+    transform: translateY(-5px);
+}
+
+/* Add more vibrant colors to the design */
+
+/* Update the body background color */
+body {
+    background-color: #e0f7fa;
+}
+
+/* Add a gradient background to the header */
+header {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+}
+
+/* Update the section background and add a border */
+section {
+    background-color: #fff;
+    border: 2px solid #ff9ff3;
+}
+
+/* Change the color of section headers */
+section h2 {
+    color: #6c5ce7;
+}
+
+/* Update table header colors */
+th {
+    background-color: #00b894;
+}
+
+/* Add colorful hover effects to table rows */
+tr:hover {
+    background-color: #a3f5f5;
+}
+
+/* Update link colors */
+a {
+    color: #0984e3;
+}
+
+a:hover {
+    color: #6c5ce7;
+}
+
+/* Add a colorful gradient to buttons */
+button, input[type="submit"] {
+    background: linear-gradient(to right, #fd79a8, #e84393);
+}
+
+button:hover, input[type="submit"]:hover {
+    background: linear-gradient(to right, #e84393, #fd79a8);
+}
+
+/* Update the footer background */
+footer {
+    background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
+}
+
+/* Add a rainbow effect to important elements */
+.important {
+    animation: rainbow 5s infinite;
+}
+
+@keyframes rainbow {
+    0% { color: #ff6b6b; }
+    20% { color: #feca57; }
+    40% { color: #48dbfb; }
+    60% { color: #ff9ff3; }
+    80% { color: #54a0ff; }
+    100% { color: #5f27cd; }
+}
+
+/* Add colorful focus styles */
+a:focus, button:focus, input:focus {
+    outline: 3px solid #feca57;
+    outline-offset: 2px;
+}
