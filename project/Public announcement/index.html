@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public Disaster Announcement</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="scripts.js" defer></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-600 p-4 text-white">
+    <h1 class="text-center text-3xl font-bold">Public Disaster Announcements</h1>
+  </nav>
+
+  <!-- Emergency Alerts Section -->
+  <section class="container mx-auto p-6 mt-5 bg-blue-200">
+    <h2 class="text-2xl font-bold mb-4">🚨 Emergency Alerts</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="alerts-container">
+      <!-- Emergency alert cards injected by JS -->
+    </div>
+
+    <!-- Form to add new emergency alerts -->
+    <div class="bg-white p-4 rounded-lg shadow-lg mt-6">
+      <h3 class="text-lg font-bold mb-4">Add New Alert:</h3>
+      <form id="alert-form">
+        <div class="mb-4">
+          <input type="text" id="alert-title" class="p-2 border rounded w-full" placeholder="Alert Title" required>
+        </div>
+        <div class="mb-4">
+          <textarea id="alert-description" class="p-2 border rounded w-full" placeholder="Alert Description" required></textarea>
+        </div>
+        <div class="mb-4">
+          <select id="alert-severity" class="p-2 border rounded w-full" required>
+            <option value="">Select Severity</option>
+            <option value="critical">Critical</option>
+            <option value="high">High</option>
+            <option value="moderate">Moderate</option>
+          </select>
+        </div>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Alert</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Video Drill Section -->
+  <section class="container mx-auto p-6 mt-10 bg-blue-200">
+    <h2 class="text-2xl font-bold mb-4">📹 Latest Drills and Videos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="videos-container">
+      <!-- Videos injected by JS -->
+    </div>
+  </section>
+
+  <!-- Event Schedule Section -->
+  <section class="container mx-auto p-6 mt-10 bg-blue-200">
+    <h2 class="text-2xl font-bold mb-4">📅 Upcoming Disaster Preparedness Events</h2>
+    <div class="bg-white p-4 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300">
+      <table class="table-auto w-full text-left hover:bg-blue-50 transition duration-300">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Date</th>
+            <th class="px-4 py-2">Event</th>
+            <th class="px-4 py-2">Location</th>
+          </tr>
+        </thead>
+        <tbody id="event-list">
+          <!-- Event rows injected by JS -->
+        </tbody>
+      </table>
+      <!-- Form to add upcoming events -->
+      <div class="mt-6">
+        <h3 class="text-lg font-bold">Add Upcoming Event:</h3>
+        <form id="event-form">
+          <div class="mb-4">
+            <input type="date" id="event-date" class="p-2 border rounded w-full" placeholder="Event Date">
+          </div>
+          <div class="mb-4">
+            <input type="text" id="event-name" class="p-2 border rounded w-full" placeholder="Event Name">
+          </div>
+          <div class="mb-4">
+            <input type="text" id="event-location" class="p-2 border rounded w-full" placeholder="Event Location">
+          </div>
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Event</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendar Section -->
+  <section class="container mx-auto p-6 mt-10 bg-blue-200">
+    <h2 class="text-2xl font-bold mb-4">📆 Event Calendar</h2>
+    <div class="bg-white p-4 rounded-lg shadow-lg hover:bg-gray-50 transition duration-300">
+      <iframe src="https://calendar.google.com/calendar/embed?src=en.indian%23holiday%40group.v.calendar.google.com&ctz=Asia/Kolkata" 
+              style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </section>
+
+</body>
+</html>
+
+<script>
+// Emergency Alerts
+const alerts = [
+  { title: "Cyclone Alert", description: "Cyclone Vayu approaching coastal Gujarat. Evacuate to safe zones immediately.", severity: "critical" },
+  { title: "Flood Warning", description: "Severe flooding in Bihar. Stay indoors and avoid low-lying areas.", severity: "high" },
+  { title: "Heatwave Advisory", description: "Temperatures in Rajasthan to reach 45°C. Stay hydrated and avoid outdoor activities.", severity: "moderate" },
+  { title: "Landslide Warning", description: "Heavy rain causes landslide threats in Himachal Pradesh. Avoid hilly roads.", severity: "critical" },
+  { title: "Tsunami Warning", description: "Tsunami alert for eastern coastal areas following underwater earthquake.", severity: "high" },
+  { title: "Drought Advisory", description: "Water shortages expected in Maharashtra. Conserve water and prepare for restrictions.", severity: "moderate" }
+];
+
+// Video Drills
+const videos = [
+  { title: "Flood Safety Drill", videoUrl: "https://www.youtube.com/embed/NuINNwvfhjI", description: "Learn how to stay safe during a flood.", thumbnail: "https://img.youtube.com/vi/NuINNwvfhjI/0.jpg" },
+  { title: "Earthquake Safety Tutorial", videoUrl: "https://www.youtube.com/embed/huc3HEBgrQk", description: "What to do during an earthquake.", thumbnail: "https://img.youtube.com/vi/huc3HEBgrQk/0.jpg" },
+  { title: "Cyclone Safety Instructions", videoUrl: "https://www.youtube.com/embed/6aYMrwOp2bw", description: "Steps to take during a cyclone.", thumbnail: "https://img.youtube.com/vi/6aYMrwOp2bw/0.jpg" },
+  { title: "Tsunami Safety Drill", videoUrl: "https://www.youtube.com/embed/f6tn3WlNy5A", description: "Best practices during a tsunami.", thumbnail: "https://img.youtube.com/vi/f6tn3WlNy5A/0.jpg" },
+  { title: "Fire Evacuation Drill", videoUrl: "https://www.youtube.com/embed/zEdtuykBAlY", description: "How to safely evacuate during a fire.", thumbnail: "https://img.youtube.com/vi/zEdtuykBAlY/0.jpg" },
+  { title: "Landslide Rescue Tutorial", videoUrl: "https://www.youtube.com/embed/rM7hti8Gjr4", description: "What to do if caught in a landslide.", thumbnail: "https://img.youtube.com/vi/rM7hti8Gjr4/0.jpg" }
+];
+
+// Upcoming Events
+const events = [
+  { date: "2024-10-05", event: "Cyclone Preparedness Workshop", location: "Chennai" },
+  { date: "2024-10-10", event: "Flood Management Training", location: "Patna" },
+  { date: "2024-10-15", event: "Earthquake Safety Seminar", location: "Delhi" }
+];
+
+// Display emergency alerts
+function displayAlerts() {
+  const alertsContainer = document.getElementById('alerts-container');
+  alerts.forEach(alert => {
+    const alertCard = `
+      <div class="p-4 bg-${getAlertColor(alert.severity)}-100 rounded-lg shadow-md hover:bg-${getAlertColor(alert.severity)}-200 transition duration-300">
+        <h3 class="text-lg font-bold">${alert.title}</h3>
+        <p>${alert.description}</p>
+      </div>
+    `;
+    alertsContainer.innerHTML += alertCard;
+  });
+}
+
+// Function to map severity to alert color
+function getAlertColor(severity) {
+  switch (severity) {
+    case 'critical':
+      return 'red';
+    case 'high':
+      return 'yellow';
+    case 'moderate':
+      return 'green';
+    default:
+      return 'gray';
+  }
+}
+
+// Add new alert dynamically
+document.getElementById('alert-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const title = document.getElementById('alert-title').value;
+  const description = document.getElementById('alert-description').value;
+  const severity = document.getElementById('alert-severity').value;
+
+  const newAlert = {
+    title,
+    description,
+    severity
+  };
+
+  // Append new alert to the existing list
+  const alertCard = `
+    <div class="p-4 bg-${getAlertColor(newAlert.severity)}-100 rounded-lg shadow-md hover:bg-${getAlertColor(newAlert.severity)}-200 transition duration-300">
+      <h3 class="text-lg font-bold">${newAlert.title}</h3>
+      <p>${newAlert.description}</p>
+    </div>
+  `;
+  document.getElementById('alerts-container').innerHTML += alertCard;
+
+  // Clear the form after submission
+  document.getElementById('alert-form').reset();
+});
+
+// Display disaster preparedness videos with controls
+function displayVideos() {
+  const videosContainer = document.getElementById('videos-container');
+  videos.forEach((video, index) => {
+    const videoCard = `
+      <div class="bg-white p-4 rounded-lg shadow-md hover:bg-blue-50 transition duration-300">
+        <img src="${video.thumbnail}" alt="${video.title}" class="w-full h-40 object-cover mb-2">
+        <h3 class="text-lg font-bold mt-2">${video.title}</h3>
+        <p>${video.description}</p>
+        <div class="mt-2">
+          <button onclick="playVideo(${index})" class="bg-green-500 text-white px-4 py-2 rounded">Play</button>
+          <button onclick="pauseVideo(${index})" class="bg-yellow-500 text-white px-4 py-2 rounded">Pause</button>
+          <button onclick="closeVideo(${index})" class="bg-red-500 text-white px-4 py-2 rounded">Close</button>
+        </div>
+        <div id="video-frame-${index}" class="mt-4"></div>
+      </div>
+    `;
+    videosContainer.innerHTML += videoCard;
+  });
+}
+
+// Functions to play, pause, and close videos
+function playVideo(index) {
+  const videoFrame = document.getElementById(`video-frame-${index}`);
+  videoFrame.innerHTML = `<iframe width="100%" height="215" src="${videos[index].videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+}
+
+function pauseVideo(index) {
+  const videoFrame = document.getElementById(`video-frame-${index}`);
+  const iframe = videoFrame.querySelector('iframe');
+  if (iframe) {
+    iframe.src = ""; // This will pause the video
+  }
+}
+
+function closeVideo(index) {
+  const videoFrame = document.getElementById(`video-frame-${index}`);
+  videoFrame.innerHTML = ""; // This will remove the iframe and effectively close the video
+}
+
+// Display upcoming events
+function displayEvents() {
+  const eventList = document.getElementById('event-list');
+  events.forEach(event => {
+    const eventRow = `
+      <tr>
+        <td class="border px-4 py-2">${event.date}</td>
+        <td class="border px-4 py-2">${event.event}</td>
+        <td class="border px-4 py-2">${event.location}</td>
+      </tr>
+    `;
+    eventList.innerHTML += eventRow;
+  });
+}
+
+// Add new event dynamically
+document.getElementById('event-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const date = document.getElementById('event-date').value;
+  const name = document.getElementById('event-name').value;
+  const location = document.getElementById('event-location').value;
+
+  const newEvent = {
+    date,
+    event: name,
+    location
+  };
+
+  // Append new event to the existing list
+  const eventRow = `
+    <tr>
+      <td class="border px-4 py-2">${newEvent.date}</td>
+      <td class="border px-4 py-2">${newEvent.event}</td>
+      <td class="border px-4 py-2">${newEvent.location}</td>
+    </tr>
+  `;
+  document.getElementById('event-list').innerHTML += eventRow;
+
+  // Clear the form after submission
+  document.getElementById('event-form').reset();
+});
+
+// Initialize the page with all sections
+window.onload = () => {
+  displayAlerts();
+  displayVideos();
+  displayEvents();
+};
+</script>
