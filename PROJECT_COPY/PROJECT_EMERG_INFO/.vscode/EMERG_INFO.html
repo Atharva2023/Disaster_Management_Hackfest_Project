@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Contacts in India</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 2px;
+            padding: 15px;
+            background-color: #f4f7f8;
+            color: #463131;
+            max-width: 100vw; /* Prevent horizontal scrolling */
+            overflow-x: hidden; /* Hide horizontal overflow */
+        }
+
+        h1 {
+            text-align: center;
+            color: #b32424;
+            margin: 20px 0;
+        }
+
+        h2 {
+            color: #702a2a;
+            margin: 20px 0 10px;
+            border-bottom: 2px solid #440000;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-name {
+            font-weight: bold;
+            color: #620000a0;
+        }
+
+        .contact-number {
+            font-weight: normal;
+            color: #555;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            font-size: 16px;
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .state-contacts {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .state-contacts h3 {
+            color: #6e1313;
+        }
+
+        a {
+            color: #1212ae;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Emergency Contacts in India</h1>
+
+    <h2>National Emergency Contacts</h2>
+    <ul>
+        <li><span class="contact-name">Police:</span> <span class="contact-number">100</span></li>
+        <li><span class="contact-name">Fire Department:</span> <span class="contact-number">101</span></li>
+        <li><span class="contact-name">Ambulance:</span> <span class="contact-number">102</span></li>
+        <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+        <li><span class="contact-name">Disaster Management:</span> <span class="contact-number">108</span></li>
+    </ul>
+
+    <h2>State and Union Territory Emergency Contacts</h2>
+    <select id="stateSelector">
+        <option value="">Select a state or union territory</option>
+        <option value="andhrapradesh">Andhra Pradesh</option>
+        <option value="arunachalpradesh">Arunachal Pradesh</option>
+        <option value="assam">Assam</option>
+        <option value="bihar">Bihar</option>
+        <option value="chandigarh">Chandigarh</option>
+        <option value="chhattisgarh">Chhattisgarh</option>
+        <option value="dadraandnagarhaveli">Dadra and Nagar Haveli</option>
+        <option value="damananddiu">Daman and Diu</option>
+        <option value="delhi">Delhi</option>
+        <option value="goa">Goa</option>
+        <option value="gujarat">Gujarat</option>
+        <option value="haryana">Haryana</option>
+        <option value="himachalpradesh">Himachal Pradesh</option>
+        <option value="jammuandkashmir">Jammu and Kashmir</option>
+        <option value="jharkhand">Jharkhand</option>
+        <option value="karnataka">Karnataka</option>
+        <option value="kerala">Kerala</option>
+        <option value="ladakh">Ladakh</option>
+        <option value="lakshadweep">Lakshadweep</option>
+        <option value="madhyapradesh">Madhya Pradesh</option>
+        <option value="maharashtra">Maharashtra</option>
+        <option value="manipur">Manipur</option>
+        <option value="meghalaya">Meghalaya</option>
+        <option value="mizoram">Mizoram</option>
+        <option value="nagaland">Nagaland</option>
+        <option value="odisha">Odisha</option>
+        <option value="puducherry">Puducherry</option>
+        <option value="punjab">Punjab</option>
+        <option value="rajasthan">Rajasthan</option>
+        <option value="sikkim">Sikkim</option>
+        <option value="tamilnadu">Tamil Nadu</option>
+        <option value="telangana">Telangana</option>
+        <option value="tripura">Tripura</option>
+        <option value="uttarakhand">Uttarakhand</option>
+        <option value="uttarpradesh">Uttar Pradesh</option>
+        <option value="westbengal">West Bengal</option>
+    </select>
+
+    <div id="andhrapradesh" class="state-contacts" style="display: none;">
+        <h3>Andhra Pradesh Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Andhra Pradesh Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Disaster Management:</span> <span class="contact-number">1070</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">181</span></li>
+        </ul>
+        <p>Official website: <a href="https://www.ap.gov.in/" target="_blank">Andhra Pradesh Government</a></p>
+    </div>
+    
+    <div id="arunachalpradesh" class="state-contacts" style="display: none;">
+        <h3>Arunachal Pradesh Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Arunachal Pradesh Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">State Emergency Operation Center:</span> <span class="contact-number">1070</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">181</span></li>
+        </ul>
+        <p>Official website: <a href="https://arunachalpradesh.gov.in/" target="_blank">Arunachal Pradesh Government</a></p>
+    </div>
+    
+    <div id="assam" class="state-contacts" style="display: none;">
+        <h3>Assam Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Assam State Disaster Management Authority:</span> <span class="contact-number">1079</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">181</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://assam.gov.in/" target="_blank">Assam Government</a></p>
+    </div>
+
+    <div id="bihar" class="state-contacts" style="display: none;">
+        <h3>Bihar Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Bihar Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Disaster Management:</span> <span class="contact-number">1070</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">181</span></li>
+        </ul>
+        <p>Official website: <a href="https://state.bihar.gov.in/" target="_blank">Bihar Government</a></p>
+    </div>
+    <div id="chhattisgarh" class="state-contacts" style="display: none;">
+        <h3>Chhattisgarh Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Chhattisgarh Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://cgstate.gov.in/" target="_blank">Chhattisgarh Government</a></p>
+    </div>
+    <div id="goa" class="state-contacts" style="display: none;">
+        <h3>Goa Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Goa Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Tourist Police:</span> <span class="contact-number">1800-832-1234</span></li>
+        </ul>
+        <p>Official website: <a href="https://www.goa.gov.in/" target="_blank">Goa Government</a></p>
+    </div>
+    <div id="gujarat" class="state-contacts" style="display: none;">
+        <h3>Gujarat Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Gujarat State Disaster Management Authority:</span> <span class="contact-number">1070</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">181</span></li>
+            <li><span class="contact-name">Senior Citizen Helpline:</span> <span class="contact-number">1090</span></li>
+        </ul>
+        <p>Official website: <a href="https://gujaratindia.gov.in/" target="_blank">Gujarat Government</a></p>
+    </div>
+    <div id="haryana" class="state-contacts" style="display: none;">
+        <h3>Haryana Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Haryana Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://haryana.gov.in/" target="_blank">Haryana Government</a></p>
+    </div>
+    <div id="himachalpradesh" class="state-contacts" style="display: none;">
+        <h3>Himachal Pradesh Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Himachal Pradesh Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Disaster Management:</span> <span class="contact-number">1070</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+        </ul>
+        <p>Official website: <a href="https://himachal.nic.in/" target="_blank">Himachal Pradesh Government</a></p>
+    </div>
+    <div id="jharkhand" class="state-contacts" style="display: none;">
+        <h3>Jharkhand Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Jharkhand Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">181</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://www.jharkhand.gov.in/" target="_blank">Jharkhand Government</a></p>
+    </div>
+    <div id="karnataka" class="state-contacts" style="display: none;">
+        <h3>Karnataka Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Karnataka State Emergency:</span> <span class="contact-number">112</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://www.karnataka.gov.in/" target="_blank">Karnataka Government</a></p>
+    </div>
+    <div id="kerala" class="state-contacts" style="display: none;">
+        <h3>Kerala Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Kerala Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://kerala.gov.in/" target="_blank">Kerala Government</a></p>
+    </div>
+    <div id="madhyapradesh" class="state-contacts" style="display: none;">
+        <h3>Madhya Pradesh Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Madhya Pradesh Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1090</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://www.mp.gov.in/" target="_blank">Madhya Pradesh Government</a></p>
+    </div>
+    <div id="maharashtra" class="state-contacts" style="display: none;">
+        <h3>Maharashtra Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Maharashtra Emergency:</span> <span class="contact-number">112</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Disaster Management:</span> <span class="contact-number">1070</span></li>
+        </ul>
+        <p>Official website: <a href="https://www.maharashtra.gov.in/" target="_blank">Maharashtra Government</a></p>
+    </div>
+    <div id="manipur" class="state-contacts" style="display: none;">
+        <h3>Manipur Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Manipur Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">181</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://manipur.gov.in/" target="_blank">Manipur Government</a></p>
+    </div>
+    <div id="meghalaya" class="state-contacts" style="display: none;">
+        <h3>Meghalaya Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Meghalaya Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">181</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://meghalaya.gov.in/" target="_blank">Meghalaya Government</a></p>
+    </div>
+    <div id="mizoram" class="state-contacts" style="display: none;">
+        <h3>Mizoram Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Mizoram Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">181</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://mizoram.gov.in/" target="_blank">Mizoram Government</a></p>
+    </div>
+    <div id="nagaland" class="state-contacts" style="display: none;">
+        <h3>Nagaland Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Nagaland Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">181</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://nagaland.gov.in/" target="_blank">Nagaland Government</a></p>
+    </div>
+    <div id="odisha" class="state-contacts" style="display: none;">
+        <h3>Odisha Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Odisha Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">181</span></li>
+            <li><span class="contact-name">Disaster Management:</span> <span class="contact-number">1070</span></li>
+        </ul>
+        <p>Official website: <a href="https://www.odisha.gov.in/" target="_blank">Odisha Government</a></p>
+    </div>
+    <div id="punjab" class="state-contacts" style="display: none;">
+        <h3>Punjab Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Punjab Police:</span> <span class="contact-number">112</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">181</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://punjab.gov.in/" target="_blank">Punjab Government</a></p>
+    </div>
+    <div id="rajasthan" class="state-contacts" style="display: none;">
+        <h3>Rajasthan Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Rajasthan Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://rajasthan.gov.in/" target="_blank">Rajasthan Government</a></p>
+    </div>
+    <div id="sikkim" class="state-contacts" style="display: none;">
+        <h3>Sikkim Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Sikkim Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://www.sikkim.gov.in/" target="_blank">Sikkim Government</a></p>
+    </div>
+    <div id="tamilnadu" class="state-contacts" style="display: none;">
+        <h3>Tamil Nadu Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Tamil Nadu Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://www.tn.gov.in/" target="_blank">Tamil Nadu Government</a></p>
+    </div>
+    <div id="telangana" class="state-contacts" style="display: none;">
+        <h3>Telangana Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Telangana Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">181</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://www.telangana.gov.in/" target="_blank">Telangana Government</a></p>
+    </div>
+    <div id="tripura" class="state-contacts" style="display: none;">
+        <h3>Tripura Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Tripura Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://tripura.gov.in/" target="_blank">Tripura Government</a></p>
+    </div>
+    <div id="uttarakhand" class="state-contacts" style="display: none;">
+        <h3>Uttarakhand Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Uttarakhand Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1090</span></li>
+            <li><span class="contact-name">Disaster Management:</span> <span class="contact-number">1070</span></li>
+        </ul>
+        <p>Official website: <a href="https://uk.gov.in/" target="_blank">Uttarakhand Government</a></p>
+    </div>
+    <div id="uttarpradesh" class="state-contacts" style="display: none;">
+        <h3>Uttar Pradesh Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Uttar Pradesh Police:</span> <span class="contact-number">112</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1090</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="http://up.gov.in/" target="_blank">Uttar Pradesh Government</a></p>
+    </div>
+    <div id="westbengal" class="state-contacts" style="display: none;">
+        <h3>West Bengal Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">West Bengal Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Disaster Management:</span> <span class="contact-number">1070</span></li>
+        </ul>
+        <p>Official website: <a href="https://wb.gov.in/" target="_blank">West Bengal Government</a></p>
+    </div>
+    <div id="andamanandnicobar" class="state-contacts" style="display: none;">
+        <h3>Andaman and Nicobar Islands Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Police Control Room:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://andaman.gov.in/" target="_blank">Andaman and Nicobar Administration</a></p>
+    </div>
+    <div id="chandigarh" class="state-contacts" style="display: none;">
+        <h3>Chandigarh Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Chandigarh Police:</span> <span class="contact-number">112</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Senior Citizen Helpline:</span> <span class="contact-number">1090</span></li>
+        </ul>
+        <p>Official website: <a href="http://chandigarh.gov.in/" target="_blank">Chandigarh Administration</a></p>
+    </div>
+    <div id="dadraandnagarhaveli" class="state-contacts" style="display: none;">
+        <h3>Dadra and Nagar Haveli Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Police Control Room:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://dnh.gov.in/" target="_blank">Dadra and Nagar Haveli Administration</a></p>
+    </div>
+    <div id="damananddiu" class="state-contacts" style="display: none;">
+        <h3>Daman and Diu Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Police Control Room:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://daman.nic.in/" target="_blank">Daman and Diu Administration</a></p>
+    </div>
+    <div id="delhi" class="state-contacts" style="display: none;">
+        <h3>Delhi Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Delhi Police:</span> <span class="contact-number">112</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Senior Citizen Helpline:</span> <span class="contact-number">1291</span></li>
+        </ul>
+        <p>Official website: <a href="https://delhi.gov.in/" target="_blank">Government of NCT of Delhi</a></p>
+    </div>
+    <div id="jammuandkashmir" class="state-contacts" style="display: none;">
+        <h3>Jammu and Kashmir Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">J&K Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Disaster Management:</span> <span class="contact-number">1070</span></li>
+        </ul>
+        <p>Official website: <a href="https://jk.gov.in/" target="_blank">Jammu and Kashmir Government</a></p>
+    </div>
+    <div id="ladakh" class="state-contacts" style="display: none;">
+        <h3>Ladakh Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Ladakh Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://ladakh.nic.in/" target="_blank">Ladakh Administration</a></p>
+    </div>
+    <div id="lakshadweep" class="state-contacts" style="display: none;">
+        <h3>Lakshadweep Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Police Control Room:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://lakshadweep.gov.in/" target="_blank">Lakshadweep Administration</a></p>
+    </div>
+    <div id="puducherry" class="state-contacts" style="display: none;">
+        <h3>Puducherry Emergency Contacts</h3>
+        <ul>
+            <li><span class="contact-name">Puducherry Police:</span> <span class="contact-number">100</span></li>
+            <li><span class="contact-name">Women Helpline:</span> <span class="contact-number">1091</span></li>
+            <li><span class="contact-name">Child Helpline:</span> <span class="contact-number">1098</span></li>
+        </ul>
+        <p>Official website: <a href="https://www.py.gov.in/" target="_blank">Government of Puducherry</a></p>
+    </div>
+
+    <script>
+        document.getElementById('stateSelector').addEventListener('change', function() {
+            var states = document.getElementsByClassName('state-contacts');
+            for (var i = 0; i < states.length; i++) {
+                states[i].style.display = 'none';
+            }
+            var selectedState = this.value;
+            if (selectedState) {
+                document.getElementById(selectedState).style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>

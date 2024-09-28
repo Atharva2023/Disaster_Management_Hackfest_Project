@@ -1,0 +1,110 @@
+:root {
+    --primary-color: #FF6B6B;
+    --secondary-color: #4ECDC4;
+    --accent-color: #FFD93D;
+    --background-color: #F0F8FF;
+    --text-color: #2C3E50;
+    --light-gray: #95A5A6;
+    --hover-color: #FFF0F5;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 30px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    color: #D84040;  /* Darker shade of primary color for better readability */
+    font-weight: 600;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px #FFB300;  /* Darker shade of accent color for better contrast */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid #3DAFA8;  /* Darker shade of secondary color for better visibility */
+}
+
+li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background-color: var(--hover-color);
+}
+
+.contact-name {
+    font-weight: bold;
+    color: #D84040;  /* Darker shade of primary color for better readability */
+    font-size: 1.1em;
+}
+
+.contact-number {
+    float: right;
+    color: #000000;  /* Darker shade of secondary color for better readability */
+    font-size: 0.9em;
+}
+
+select {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 25px;
+    border: 2px solid var(--light-gray);
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #fff;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+select:focus {
+    border-color: #D84040;  /* Darker shade of primary color for better visibility */
+    outline: none;
+    box-shadow: 0 0 8px rgba(216, 64, 64, 0.4);
+}
+
+.state-contacts {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid #FFB300;  /* Darker shade of accent color for better visibility */
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+    }
+    
+    select {
+        font-size: 14px;
+    }
+    
+    li {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+}
