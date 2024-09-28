@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disaster Simulation & Training</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-500 p-4 text-white">
+    <h1 class="text-center text-3xl font-bold">Disaster Simulation & Training</h1>
+  </nav>
+
+  <!-- Simulation Game Section -->
+  <section class="container mx-auto p-6 mt-5 bg-blue-200">
+    <h2 class="text-2xl font-bold mb-4">🕹 Disaster Simulation Game</h2>
+    <div class="bg-white p-4 rounded-lg shadow-md hover:bg-gray-50 transition duration-300 hover:bg-yellow-200">
+      <p class="mb-4">Test your disaster preparedness skills in this advanced simulation game!</p>
+      <button id="start-game" class="bg-blue-500 text-white px-4 py-2 rounded">Start Simulation</button>
+      <div id="game-container" class="mt-4"></div>
+    </div>
+  </section>
+  
+  <!-- Safe and Unsafe Practices -->
+  <section class="container mx-auto p-6 mt-10 bg-blue-200">
+    <h2 class="text-2xl font-bold mb-4">✔️ Safe vs ❌ Unsafe Practices</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Safe Practice Cards -->
+      <div class="p-4 bg-green-100 rounded-lg shadow-md hover:bg-green-200 transition duration-300">
+        <h3 class="text-lg font-bold">Safe Practice</h3>
+        <p>Stay indoors during a flood and move to higher ground if possible.</p>
+      </div>
+      <div class="p-4 bg-green-100 rounded-lg shadow-md hover:bg-green-200 transition duration-300">
+        <h3 class="text-lg font-bold">Safe Practice</h3>
+        <p>Secure heavy furniture to prevent tipping during earthquakes.</p>
+      </div>
+      <div class="p-4 bg-green-100 rounded-lg shadow-md hover:bg-green-200 transition duration-300">
+        <h3 class="text-lg font-bold">Safe Practice</h3>
+        <p>Stay tuned to weather alerts and warnings in your area.</p>
+      </div>
+
+      <!-- Unsafe Practice Cards -->
+      <div class="p-4 bg-red-100 rounded-lg shadow-md hover:bg-red-200 transition duration-300">
+        <h3 class="text-lg font-bold">Unsafe Practice</h3>
+        <p>Do not wait until the last minute to prepare for an emergency.</p>
+      </div>
+      <div class="p-4 bg-red-100 rounded-lg shadow-md hover:bg-red-200 transition duration-300">
+        <h3 class="text-lg font-bold">Unsafe Practice</h3>
+        <p>Do not try to save personal belongings at the risk of your safety.</p>
+      </div>
+      <div class="p-4 bg-red-100 rounded-lg shadow-md hover:bg-red-200 transition duration-300">
+        <h3 class="text-lg font-bold">Unsafe Practice</h3>
+        <p>Don’t forget to check on neighbors who may need assistance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mock Drills and Videos -->
+  <section class="container mx-auto p-6 mt-10 bg-blue-200">
+    <h2 class="text-2xl font-bold mb-4">📹 Mock Drills & Videos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="videos-container">
+      <!-- Sample Video Cards -->
+      <div class="p-4 bg-white rounded-lg shadow-md">
+        <h3 class="text-lg font-bold">Earthquake Drill</h3>
+        <video class="w-full h-32 rounded" controls>
+            <source src="path/to/earthquake-drill.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="p-4 bg-white rounded-lg shadow-md">
+        <h3 class="text-lg font-bold">Flood Safety Tips</h3>
+        <video class="w-full h-32 rounded" controls>
+            <source src="path/to/flood-safety-tips.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="p-4 bg-white rounded-lg shadow-md">
+        <h3 class="text-lg font-bold">Fire Evacuation Drill</h3>
+        <video class="w-full h-32 rounded" controls>
+            <source src="path/to/fire-evacuation-drill.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Workshops -->
+  <section class="container mx-auto p-6 mt-10 bg-blue-200">
+    <h2 class="text-2xl font-bold mb-4">📅 Upcoming Disaster Preparedness Workshops</h2>
+    <div class="bg-white p-4 rounded-lg shadow-lg">
+      <table class="table-auto w-full text-left">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Date</th>
+            <th class="px-4 py-2">Event</th>
+            <th class="px-4 py-2">Location</th>
+          </tr>
+        </thead>
+        <tbody id="event-list">
+          <!-- Event rows injected by JS -->
+        </tbody>
+      </table>
+      <!-- Add Workshop Form -->
+      <div class="mt-6">
+        <h3 class="text-lg font-bold">Add Upcoming Workshop:</h3>
+        <form id="event-form">
+          <div class="mb-4">
+            <input type="date" id="event-date" class="p-2 border rounded w-full" placeholder="Event Date" required>
+          </div>
+          <div class="mb-4">
+            <input type="text" id="event-name" class="p-2 border rounded w-full" placeholder="Event Name" required>
+          </div>
+          <div class="mb-4">
+            <input type="text" id="event-location" class="p-2 border rounded w-full" placeholder="Event Location" required>
+          </div>
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Workshop</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disaster Statistics Section (Graphical Format) -->
+  <section class="container mx-auto mt-10 bg-blue-200">
+    <h2 class="text-2xl font-bold mb-4">📊 Disaster Statistics</h2>
+    <canvas id="disaster-chart" class="w-3/4 h-48 mx-auto bg-white"></canvas>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center p-4 mt-10">
+    <p>Disaster Simulation & Training - Stay Prepared, Stay Safe</p>
+  </footer>
+
+  <script>
+    // Disaster Simulation Game Logic
+    const gameContainer = document.getElementById('game-container');
+    
+    document.getElementById('start-game').addEventListener('click', () => {
+      gameContainer.innerHTML = `
+        <p class="text-xl font-bold">You are in an area prone to disasters. Choose a scenario:</p>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" id="scenario1">Flood Scenario</button>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" id="scenario2">Earthquake Scenario</button>
+      `;
+
+      document.getElementById('scenario1').addEventListener('click', () => {
+        floodScenario();
+      });
+      document.getElementById('scenario2').addEventListener('click', () => {
+        earthquakeScenario();
+      });
+    });
+
+    function floodScenario() {
+      gameContainer.innerHTML = `
+        <p class="text-xl font-bold">It's flooding! What will you do?</p>
+        <button class="bg-green-500 text-white px-4 py-2 rounded mt-4" id="flood-option1">Move to higher ground</button>
+        <button class="bg-red-500 text-white px-4 py-2 rounded mt-4" id="flood-option2">Stay put</button>
+      `;
+      document.getElementById('flood-option1').addEventListener('click', () => {
+        gameContainer.innerHTML = `<p class="text-green-500 font-bold">Correct! Moving to higher ground is the best option during a flood.</p>`;
+      });
+      document.getElementById('flood-option2').addEventListener('click', () => {
+        gameContainer.innerHTML = `<p class="text-red-500 font-bold">Incorrect! Staying put could put you in danger during a flood.</p>`;
+      });
+    }
+
+    function earthquakeScenario() {
+      gameContainer.innerHTML = `
+        <p class="text-xl font-bold">There's an earthquake! What will you do?</p>
+        <button class="bg-green-500 text-white px-4 py-2 rounded mt-4" id="earthquake-option1">Take cover under a sturdy table</button>
+        <button class="bg-red-500 text-white px-4 py-2 rounded mt-4" id="earthquake-option2">Run outside</button>
+      `;
+      document.getElementById('earthquake-option1').addEventListener('click', () => {
+        gameContainer.innerHTML = `<p class="text-green-500 font-bold">Correct! Taking cover under a sturdy table is the safest action during an earthquake.</p>`;
+      });
+      document.getElementById('earthquake-option2').addEventListener('click', () => {
+        gameContainer.innerHTML = `<p class="text-red-500 font-bold">Incorrect! Running outside during an earthquake is dangerous.</p>`;
+      });
+    }
+
+    // Chart Data for Disaster Statistics
+    const ctx = document.getElementById('disaster-chart').getContext('2d');
+    const disasterChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Floods', 'Earthquakes', 'Wildfires', 'Hurricanes', 'Tornadoes'],
+        datasets: [{
+          label: 'Disasters in 2023',
+          data: [50, 20, 30, 40, 25],
+          backgroundColor: ['#4F46E5', '#EF4444', '#F59E0B', '#10B981', '#3B82F6']
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Add New Event to Workshop
+    const eventForm = document.getElementById('event-form');
+    eventForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const eventDate = document.getElementById('event-date').value;
+      const eventName = document.getElementById('event-name').value;
+      const eventLocation = document.getElementById('event-location').value;
+
+      const newRow = document.createElement('tr');
+      newRow.innerHTML = `
+        <td class="border px-4 py-2">${eventDate}</td>
+        <td class="border px-4 py-2">${eventName}</td>
+        <td class="border px-4 py-2">${eventLocation}</td>
+      `;
+      document.getElementById('event-list').appendChild(newRow);
+
+      // Clear the form after submission
+      eventForm.reset();
+    });
+  </script>
+</body>
+</html>
