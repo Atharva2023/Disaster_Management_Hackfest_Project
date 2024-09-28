@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Management - Login</title>
+    <link rel="stylesheet" href="login-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .content {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Animation Container -->
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Disaster Management</h1>
+            
+            <!-- Login Form -->
+            <div id="login-section" class="form-section">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="password" id="password" placeholder="Password" required>
+
+                    <!-- Dropdown to Select User Type -->
+                    <div class="user-type">
+                        <select id="loginType" required>
+                            <option value="" disabled selected>Login as:</option>
+                            <option value="citizen">Citizen</option>
+                            <option value="rescue">Rescue Agency</option>
+                        </select>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <p>New user? <a href="#" id="switchToRegister">Register here</a></p>
+            </div>
+
+            <!-- Registration Form -->
+            <div id="register-section" class="form-section" style="display: none;">
+                <h2>Register</h2>
+                <form id="registerForm">
+                    <select id="userType">
+                        <option value="citizen">Citizen</option>
+                        <option value="rescue">Rescue Agency</option>
+                    </select>
+                    <input type="text" id="name" placeholder="Full Name / Agency Name" required>
+                    <input type="email" id="emailRegister" placeholder="Email" required>
+                    <input type="password" id="passwordRegister" placeholder="Password" required>
+
+                    <!-- Additional fields for Rescue Agency -->
+                    <div id="rescueFields" style="display: none;">
+                        <input type="text" id="agencyId" placeholder="Agency ID">
+                        <input type="text" id="specialization" placeholder="Specialization">
+                    </div>
+
+                    <button type="submit">Register</button>
+                </form>
+                <p>Already registered? <a href="#" id="switchToLogin">Login here</a></p>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Particle.js Configuration -->
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+
+    <script src="login-script.js"></script>
+</body>
+</html>
+

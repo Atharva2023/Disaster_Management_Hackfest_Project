@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Disaster Management</title>
+    
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Correct Font Awesome CDN -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .scrollable-menu, .scrollable-content {
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+        .card {
+            width: 250px;
+            height: 350px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 sticky top-0 z-50 p-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <img src="./image/logo.jpeg" alt="Disaster Management Logo" class="h-10 w-10 rounded-full">
+            <h1 class="text-white text-xl ml-4 font-bold">Admin Dashboard</h1>
+        </div>
+        <input type="text" placeholder="Search..." class="p-2 rounded w-64" id="searchInput">
+    </nav>
+
+    <!-- Main Layout -->
+    <div class="flex flex-1">
+        <!-- Left Sidebar (Scrollable Menu) -->
+        <div class="w-1/4 bg-white shadow-md p-4 scrollable-menu ">
+            <h2 class="text-lg font-bold mb-4">Menu</h2>
+            <ul id="menuItems">
+                <li class="mb-2 hover:bg-green-100 p-2 rounded flex items-center gap-3">
+                    <i class="ri-megaphone-fill text-2xl"></i>
+                    <a href="./project/Public announcement/index.html">Public Announcement</a>
+                </li>
+                <li class="mb-2 hover:bg-green-100 p-2 rounded flex items-center gap-3">
+                    <i class="ri-community-line  text-2xl"></i>
+                    <a href="./Project_community copy/Comm.html">Community</a>
+                </li>
+                <li class="mb-2 hover:bg-green-100 p-2 rounded flex items-center gap-3">
+                    <i class="ri-edit-box-line  text-2xl"></i>
+                    <a href="./project/current-crisis/index.html">Crisis Update</a>
+                </li>
+                <li class="mb-2 hover:bg-green-100 p-2 rounded flex gap-3  items-center">
+                    <i class="ri-bar-chart-2-line  text-2xl"></i>
+                    <a href="./project/past disaster statistic/index.html" >Past Disaster Statistics</a>
+                </li>
+            </ul>
+            <button class="bg-red-500 text-white w-full p-2 rounded mt-4 flex items-center justify-center" onclick="location.href='main.html'">
+                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+            </button>
+        </div>
+
+        <!-- Right Content (Scrollable Cards) -->
+        <div class="w-3/4 p-6 flex flex-wrap gap-6 scrollable-content  " id="contentArea">
+            <!-- Public Announcement Card -->
+            <div id="publicAnnouncement" class="bg-white shadow-lg rounded-lg card p-4 bg-green-200 transition transform hover:scale-105">
+                <img src="./image/Public Announcement.jpeg" alt="Public Announcement" class="w-full h-32 object-cover rounded-t-md">
+                <h3 class="text-lg font-bold mt-2">Public Announcement</h3>
+                <p class="text-sm mt-2">Stay updated with the latest public announcements and guidelines related to disaster management.</p>
+                <button class="bg-blue-500 text-white mt-4 p-2 rounded w-full" onclick="location.href='./project/Public announcement/index.html'">Learn More</button>
+            </div>
+
+            <!-- Community Card -->
+            <div id="community" class="bg-white shadow-md rounded-lg card p-4 bg-red-200 transition transform hover:scale-105">
+                <img src="./image/Community.jpeg" alt="Community" class="w-full h-32 object-cover rounded-t-md">
+                <h3 class="text-lg font-bold mt-2">Community</h3>
+                <p class="text-sm mt-2">Engage with community initiatives and activities that focus on disaster awareness and preparedness.</p>
+                <button class="bg-blue-500 text-white mt-4 p-2 rounded w-full" onclick="location.href='./Project_community copy/Comm.html'">Learn More</button>
+            </div>
+
+            <!-- Crisis Update Card -->
+            <div id="crisisUpdate" class="bg-white shadow-md rounded-lg card p-4 bg-yellow-200 transition transform hover:scale-105">
+                <img src="./image/Crisis Update2.jpeg" alt="Crisis Update" class="w-full h-32 object-cover rounded-t-md">
+                <h3 class="text-lg font-bold mt-2">Crisis Update</h3>
+                <p class="text-sm mt-2">Get real-time updates on current crisis situations and important developments.</p>
+                <button class="bg-blue-500 text-white mt-4 p-2 rounded w-full" onclick="location.href='./project/current-crisis/index.html'">Learn More</button>
+            </div>
+
+            <!-- Past Disaster Statistics Card -->
+            <div id="pastStatistics" class="bg-white shadow-md rounded-lg card p-4 bg-blue-200 transition transform hover:scale-105">
+                <img src="./image/Past Disaster Statistics.png" alt="Past Disaster Statistics" class="w-full h-32 object-cover rounded-t-md">
+                <h3 class="text-lg font-bold mt-2">Past Disaster Statistics</h3>
+                <p class="text-sm mt-2">Explore detailed statistics and reports from past disaster events to learn from history.</p>
+                <button class="bg-blue-500 text-white mt-4 p-2 rounded w-full" onclick="location.href='./project/past disaster statistic/index.html'">Learn More</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        window.embeddedChatbotConfig = {
+        chatbotId: "qYpzfWSs6fGWsA_RGH4n9",
+        domain: "www.chatbase.co"
+        }
+    </script>
+    <script src="https://www.chatbase.co/embed.min.js" chatbotId="qYpzfWSs6fGWsA_RGH4n9" domain="www.chatbase.co" defer></script>
+
+</body>
+</html>
