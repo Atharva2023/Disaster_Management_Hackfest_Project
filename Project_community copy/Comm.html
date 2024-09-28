@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Community - Disaster Rescue</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            color: #333;
+            max-width: 100vw; /* Prevent horizontal scrolling */
+            overflow-x: hidden; /* Hide horizontal overflow */
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 0.5rem; /* Reduced header height */
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 0.5rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0  10px;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 800px; /* Restrict width of main content */
+            margin-left: 23px;
+            margin-right: auto; /* Center the main content */
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .chat-window {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            overflow-y: scroll;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            background-color: #e6e6e6;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .message.sent {
+            background-color: #a49882;
+            color: white;
+            margin-left: 50px;
+        }
+
+        .message-input {
+            display: flex;
+        }
+
+        #message-text {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+        }
+
+        #send-button {
+            padding: 10px 20px;
+            background-color: #c0a9a2;
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to Disaster Rescue Community</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#forum">Forum</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>About Our Community</h2>
+            <p>A dedicated community committed to swift, coordinated disaster response, rescue, and recovery, ensuring safety and resilience in times of crisis.</p>
+        </section>
+
+        <section id="events">
+            <h2>Upcoming Events</h2>
+            <ul>
+                <li>Community Drill - October 15th</li>
+                <li>Safety Precautions Seminar - October 22nd</li>
+                <li>Community Meeting - October 1st</li>
+            </ul>
+        </section>
+
+        <section id="forum">
+            <h2>Community Forum</h2>
+            <p>Join the conversation! Visit our forum to discuss local issues, share ideas, and connect with others.</p>
+        </section>
+
+        <div class="container">
+            <div class="chat-window" id="chat-window">
+                <!-- Messages will be dynamically added here -->
+            </div>
+            <div class="message-input">
+                <input type="text" id="message-text" placeholder="Type your message...">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Have questions or suggestions? Reach out to us at <a href="mailto:info@ourcommunity.com">info@rescuecommunity.com</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Our Community. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const chatWindow = document.getElementById('chat-window');
+            const messageText = document.getElementById('message-text');
+            const sendButton = document.getElementById('send-button');
+
+            function addMessage(text, isSent) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message');
+                if (isSent) {
+                    messageElement.classList.add('sent');
+                }
+                messageElement.textContent = text;
+                chatWindow.appendChild(messageElement);
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+            }
+
+            sendButton.addEventListener('click', function () {
+                const message = messageText.value.trim();
+                if (message) {
+                    addMessage(message, true);
+                    messageText.value = '';
+                }
+            });
+
+            messageText.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    sendButton.click();
+                }
+            });
+
+            // Simulating received messages
+            setTimeout(() => addMessage("Welcome to the community forum platform!", false), 1000);
+            setTimeout(() => addMessage("Feel free to start chatting with other community members.", false), 2000);
+        });
+    </script>
+
+</body>
+
+</html>
