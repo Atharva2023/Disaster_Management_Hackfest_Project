@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crisis Update Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4 text-white text-center">
+        <h1 class="text-3xl font-bold">Crisis Update Portal</h1>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="container mx-auto py-8 px-4">
+        <!-- Missing and Located Persons Section -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-600">Missing and Located Persons</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Missing Persons List -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg bg-blue-200">
+                    <h3 class="text-lg font-semibold mb-2">Missing Persons</h3>
+                    <ul id="missing-list" class="list-disc pl-5"></ul>
+                    <div class="mt-4">
+                        <input type="text" id="missing-name" placeholder="Enter missing person's name" class="border p-2 rounded w-full">
+                        <button class="bg-blue-500 text-white px-4 py-2 mt-2 rounded hover:bg-blue-700" onclick="addMissingPerson()">Add</button>
+                    </div>
+                </div>
+
+                <!-- Located Persons List -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg bg-blue-200">
+                    <h3 class="text-lg font-semibold mb-2">Located Persons</h3>
+                    <ul id="located-list" class="list-disc pl-5"></ul>
+                    <div class="mt-4">
+                        <input type="text" id="located-name" placeholder="Enter located person's name" class="border p-2 rounded w-full">
+                        <button class="bg-green-500 text-white px-4 py-2 mt-2 rounded hover:bg-green-700" onclick="addLocatedPerson()">Add</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Casualties Data Section -->
+        <section>
+            <h2 class="text-xl font-semibold mb-4">Reported Casualties</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg bg-blue-200">
+                <div class="overflow-x-auto bg-red-200">
+                    <!-- Casualties Table -->
+                    <table class="table-auto w-full text-left">
+                        <thead class="bg-yellow-200">
+                            <tr>
+                                <th class="px-4 py-2">Date</th>
+                                <th class="px-4 py-2">Location</th>
+                                <th class="px-4 py-2">Reported Deaths</th>
+                                <th class="px-4 py-2">Injuries</th>
+                            </tr>
+                        </thead>
+                        <tbody id="casualties-table"></tbody>
+                    </table>
+                </div>
+                <div class="mt-4">
+                    <input type="date" id="casualty-date" class="border p-2 rounded mb-2 w-full">
+                    <input type="text" id="casualty-location" placeholder="Location" class="border p-2 rounded mb-2 w-full">
+                    <input type="number" id="casualty-deaths" placeholder="Deaths" class="border p-2 rounded mb-2 w-full">
+                    <input type="number" id="casualty-injuries" placeholder="Injuries" class="border p-2 rounded mb-2 w-full">
+                    <button class="bg-red-500 text-white px-4 py-2 mt-2 rounded hover:bg-red-700" onclick="addCasualty()">Add Casualty</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Casualties Chart Section -->
+        <section class="mt-8">
+            <h2 class="text-xl font-semibold mb-4">Casualties Statistics</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Bar Chart Card -->
+                <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg bg-blue-200">
+                    <h3 class="text-lg font-semibold mb-2">Bar Chart</h3>
+                    <canvas id="casualtiesBarChart" class="bg-white"></canvas>
+                </div>
+
+                <!-- Line Chart Card -->
+                <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg bg-blue-200">
+                    <h3 class="text-lg font-semibold mb-2">Line Chart</h3>
+                    <canvas id="casualtiesLineChart" class="bg-white"></canvas>
+                </div>
+
+                <!-- Pie Chart Card -->
+                <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg bg-blue-200">
+                    <h3 class="text-lg font-semibold mb-2">Pie Chart</h3>
+                    <canvas id="casualtiesPieChart" class="bg-white"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Arrays to store data
+        let missingPersons = [];
+        let locatedPersons = [];
+        let casualtiesData = [
+            { date: '2024-09-01', location: 'Location A', deaths: 5, injuries: 10 },
+            { date: '2024-09-02', location: 'Location B', deaths: 3, injuries: 5 },
+            { date: '2024-09-03', location: 'Location C', deaths: 7, injuries: 15 },
+            { date: '2024-09-04', location: 'Location D', deaths: 2, injuries: 8 },
+            { date: '2024-09-05', location: 'Location E', deaths: 4, injuries: 12 }
+        ];
+
+        // Initial population of the casualties table
+        window.onload = function() {
+            updateCasualtyTable();
+            updateCharts();
+        };
+
+        // Function to add missing person
+        function addMissingPerson() {
+            const name = document.getElementById('missing-name').value;
+            if (name) {
+                missingPersons.push(name);
+                updateMissingList();
+                document.getElementById('missing-name').value = '';
+            }
+        }
+
+        function updateMissingList() {
+            const missingList = document.getElementById('missing-list');
+            missingList.innerHTML = '';
+            missingPersons.forEach(person => {
+                const li = document.createElement('li');
+                li.textContent = person;
+                missingList.appendChild(li);
+            });
+        }
+
+        // Function to add located person
+        function addLocatedPerson() {
+            const name = document.getElementById('located-name').value;
+            if (name) {
+                locatedPersons.push(name);
+                updateLocatedList();
+                document.getElementById('located-name').value = '';
+            }
+        }
+
+        function updateLocatedList() {
+            const locatedList = document.getElementById('located-list');
+            locatedList.innerHTML = '';
+            locatedPersons.forEach(person => {
+                const li = document.createElement('li');
+                li.textContent = person;
+                locatedList.appendChild(li);
+            });
+        }
+
+        // Function to add casualty data
+        function addCasualty() {
+            const date = document.getElementById('casualty-date').value;
+            const location = document.getElementById('casualty-location').value;
+            const deaths = document.getElementById('casualty-deaths').value;
+            const injuries = document.getElementById('casualty-injuries').value;
+
+            if (date && location && deaths && injuries) {
+                const newCasualty = { date, location, deaths: parseInt(deaths), injuries: parseInt(injuries) };
+                casualtiesData.push(newCasualty);
+                updateCasualtyTable();
+                updateCharts();
+
+                // Clear the input fields after adding the casualty
+                document.getElementById('casualty-date').value = '';
+                document.getElementById('casualty-location').value = '';
+                document.getElementById('casualty-deaths').value = '';
+                document.getElementById('casualty-injuries').value = '';
+            }
+        }
+
+        // Function to update casualty table
+        function updateCasualtyTable() {
+            const table = document.getElementById('casualties-table');
+            table.innerHTML = '';
+            casualtiesData.forEach(casualty => {
+                const row = `<tr>
+                    <td class="px-4 py-2">${casualty.date}</td>
+                    <td class="px-4 py-2">${casualty.location}</td>
+                    <td class="px-4 py-2">${casualty.deaths}</td>
+                    <td class="px-4 py-2">${casualty.injuries}</td>
+                </tr>`;
+                table.innerHTML += row;
+            });
+        }
+
+        // Function to update charts
+        function updateCharts() {
+            const deathsData = casualtiesData.map(casualty => casualty.deaths);
+            const injuriesData = casualtiesData.map(casualty => casualty.injuries);
+            const datesData = casualtiesData.map(casualty => casualty.date);
+
+            // Bar Chart
+            const barCtx = document.getElementById('casualtiesBarChart').getContext('2d');
+            new Chart(barCtx, {
+                type: 'bar',
+                data: {
+                    labels: datesData,
+                    datasets: [
+                        {
+                            label: 'Deaths',
+                            data: deathsData,
+                            backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                        },
+                        {
+                            label: 'Injuries',
+                            data: injuriesData,
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        }
+                    ]
+                }
+            });
+
+            // Line Chart
+            const lineCtx = document.getElementById('casualtiesLineChart').getContext('2d');
+            new Chart(lineCtx, {
+                type: 'line',
+                data: {
+                    labels: datesData,
+                    datasets: [
+                        {
+                            label: 'Deaths',
+                            data: deathsData,
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            fill: false,
+                        },
+                        {
+                            label: 'Injuries',
+                            data: injuriesData,
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            fill: false,
+                        }
+                    ]
+                }
+            });
+
+            // Pie Chart
+            const pieCtx = document.getElementById('casualtiesPieChart').getContext('2d');
+            new Chart(pieCtx, {
+                type: 'pie',
+                data: {
+                    labels: datesData,
+                    datasets: [{
+                        label: 'Casualties',
+                        data: deathsData.map((deaths, index) => deaths + injuriesData[index]),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 206, 86, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(153, 102, 255, 0.6)'
+                        ]
+                    }]
+                }
+            });
+        }
+    </script>
+</body>
+</html>
